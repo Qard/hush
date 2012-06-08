@@ -106,9 +106,10 @@
    * @param  {Function} fn Callback to execute whenever a hash change occurs
    */
   Hush.start = function (fn) {
-    var hash = Hush.parse(location.hash)
-    window.onhashchange = function () { fn(hash) }
-    fn(hash)
+    window.onhashchange = function () {
+      fn(Hush.parse(location.hash))
+    }
+    fn(Hush.parse(location.hash))
   }
 
   // Export
